@@ -1,5 +1,6 @@
 const ordenedList = document.getElementById('list-tasks');
 const inputButton = document.getElementById('create-task');
+const deleteButton = document.getElementById('clear-all');
 let itensArray;
 let item;
 let taskItem;
@@ -48,3 +49,16 @@ function forItens() {
 }
 
 inputButton.addEventListener('click', forItens);
+
+// let savedTaskItems;
+
+// Delete all task items
+function deleteAll() {
+  const itemListTasks = document.querySelectorAll('li');
+  for (let index = 0; index < itemListTasks.length; index += 1) {
+    const allItems = itemListTasks[index];
+    allItems.remove();
+  }
+}
+
+deleteButton.addEventListener('click', deleteAll);
