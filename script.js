@@ -2,6 +2,7 @@ const ordenedList = document.getElementById('list-tasks');
 const inputButton = document.getElementById('create-task');
 const deleteButton = document.getElementById('clear-all');
 const deleteFinalizedButton = document.getElementById('remove-finished');
+const deleteSelectedButton = document.getElementById('remove-selected');
 const saveLocalStoreButton = document.getElementById('save-tasks');
 const up = document.getElementById('move-up');
 const down = document.getElementById('move-down');
@@ -91,6 +92,19 @@ if (savedTask === undefined) {
 } else {
   ordenedList.innerHTML = savedTask;
 }
+
+// Delete selected tasks
+let selectedArray;
+function deleteSelected() {
+  for (let index2 = 0; index2 < item.length; index2 += 1) {
+    selectedArray = item[index2];
+    if (selectedArray.classList.contains('selected')) {
+      selectedArray.remove();
+    }
+  }
+}
+
+deleteSelectedButton.addEventListener('click', deleteSelected);
 
 let selected = document.querySelector('.selected');
 let previousTask;
