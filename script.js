@@ -1,6 +1,7 @@
 const ordenedList = document.getElementById('list-tasks');
 const inputButton = document.getElementById('create-task');
 const deleteButton = document.getElementById('clear-all');
+const deleteFinalizedButton = document.getElementById('remove-finished');
 let itensArray;
 let item;
 let taskItem;
@@ -62,3 +63,14 @@ function deleteAll() {
 }
 
 deleteButton.addEventListener('click', deleteAll);
+
+// Delete finished tasks
+function deleteFinalized() {
+  const finalized = document.querySelectorAll('.completed');
+  for (let index = 0; index < finalized.length; index += 1) {
+    const finalizedArray = finalized[index];
+    finalizedArray.remove();
+  }
+}
+
+deleteFinalizedButton.addEventListener('click', deleteFinalized);
