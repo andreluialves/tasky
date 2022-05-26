@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Tasky</title>
+</head>
+
+<body>
+    <header>
+        <h1>Tasky</h1>
+        <div>
+          <div>Quarta, 21 de maio | </div>
+          <div>10:30</div>
+        </div>
+    </header>
+    <main>
+        <section>
+            <p id="operation"><i>Clique duas vezes em um item para marcá-lo como completo.</i></p>
+            <input type="text" id="text-task">
+            <button id="create-task">Novo item</button>
+            <button id="remove-selected">Remover selecionados</button>
+            <button id="clear-all">Apagar tudo</button>
+            <button id="remove-finished">Apagar finalizados</button>
+            <button id="save-tasks">Salvar tarefas</button>
+        </section>
+        <section>
+            <button id="move-up">Mover para cima</button>
+            <button id="move-down">Mover para baixo</button>
+            <ol id="list-tasks"></ol>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
