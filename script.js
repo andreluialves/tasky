@@ -2,6 +2,7 @@ const ordenedList = document.getElementById('list-tasks');
 const inputButton = document.getElementById('create-task');
 const deleteButton = document.getElementById('clear-all');
 const deleteFinalizedButton = document.getElementById('remove-finished');
+const saveLocalStoreButton = document.getElementById('save-tasks');
 let itensArray;
 let item;
 let taskItem;
@@ -74,3 +75,17 @@ function deleteFinalized() {
 }
 
 deleteFinalizedButton.addEventListener('click', deleteFinalized);
+
+let savedTask = localStorage.getItem('tasks');
+function localStore() {
+  localStorage.setItem('tasks', ordenedList.innerHTML);
+  console.log(savedTask);
+}
+
+saveLocalStoreButton.addEventListener('click', localStore);
+
+if (savedTask === undefined) {
+  savedTask = document.createElement('li');
+} else {
+  ordenedList.innerHTML = savedTask;
+}
