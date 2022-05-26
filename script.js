@@ -3,6 +3,8 @@ const inputButton = document.getElementById('create-task');
 const deleteButton = document.getElementById('clear-all');
 const deleteFinalizedButton = document.getElementById('remove-finished');
 const saveLocalStoreButton = document.getElementById('save-tasks');
+const up = document.getElementById('move-up');
+const down = document.getElementById('move-down');
 let itensArray;
 let item;
 let taskItem;
@@ -89,3 +91,30 @@ if (savedTask === undefined) {
 } else {
   ordenedList.innerHTML = savedTask;
 }
+
+let selected = document.querySelector('.selected');
+let previousTask;
+let nextTask;
+
+// Move Up tasks
+function moveUpTasks() {
+  selected = document.querySelector('.selected');
+  if (selected && selected !== ordenedList.firstChild) {
+    previousTask = selected.previousElementSibling;
+    nextTask = selected.nextElementSibling;
+    ordenedList.insertBefore(previousTask, nextTask);
+  }
+}
+
+up.addEventListener('click', moveUpTasks);
+
+// Move Down tasks
+function moveDownTasks() {
+  selected = document.querySelector('.selected');
+  if (selected && selected !== ordenedList.lastChild) {
+    nextTask = selected.nextElementSibling;
+    ordenedList.insertBefore(nextTask, selected);
+  }
+}
+
+down.addEventListener('click', moveDownTasks);
