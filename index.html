@@ -10,27 +10,34 @@
 </head>
 
 <body>
-    <header>
+    <header class="bg-green">
         <h1>Tasky</h1>
-        <div>
-          <div>Quarta, 21 de maio | </div>
+        <div class="date-hour">
+          <div>Quarta, 21 de maio</div>
+          <div>|</div>
           <div>10:30</div>
         </div>
     </header>
+    <p id="operation"><i>Clique duas vezes em um item para marcá-lo como completo.</i></p>
     <main>
         <section>
-            <p id="operation"><i>Clique duas vezes em um item para marcá-lo como completo.</i></p>
-            <input type="text" id="text-task">
-            <button id="create-task">Novo item</button>
-            <button id="remove-selected">Remover selecionados</button>
-            <button id="clear-all">Apagar tudo</button>
-            <button id="remove-finished">Apagar finalizados</button>
-            <button id="save-tasks">Salvar tarefas</button>
+          <div class="options-task mb-8pc">
+            <div id="remove-selected">Remover selecionados</div>
+            <div id="clear-all">Apagar tudo</div>
+            <div id="remove-finished">Apagar finalizados</div>
+            <div id="save-tasks">Salvar tarefas</div>
+          </div>
+          <div class="form-task space-between mb-6pc">
+            <input type="text" id="text-task" placeholder="Insira uma nova tarefa">
+            <button id="create-task" class="button button-green">Novo item</button>
+          </div>
+        </section>
+        <section class="justify-end mb-6pc">
+            <button id="move-up" class="button button-outline mr-10px">Mover para cima</button>
+            <button id="move-down" class="button button-outline">Mover para baixo</button>
         </section>
         <section>
-            <button id="move-up">Mover para cima</button>
-            <button id="move-down">Mover para baixo</button>
-            <ol id="list-tasks"></ol>
+          <ol id="list-tasks"></ol>
         </section>
     </main>
     <script src="script.js"></script>
