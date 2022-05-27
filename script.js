@@ -30,7 +30,7 @@ function itemBgClick(event) {
     itensArray.style.backgroundColor = 'white';
     itensArray.classList.remove('selected');
   }
-  event.target.style.backgroundColor = 'rgb(128 128 128)';
+  event.target.style.backgroundColor = 'rgba(0, 150, 136, 0.1)';
   event.target.classList.add('selected');
 }
 
