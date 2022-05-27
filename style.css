@@ -82,6 +82,10 @@ header {
   text-decoration: line-through solid rgb(0 0 0);
 }
 
+#create-task img {
+  vertical-align: middle;
+}
+
 main {
   background-color: white;
   margin-top: 3%;
