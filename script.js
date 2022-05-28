@@ -6,6 +6,7 @@ const deleteSelectedButton = document.getElementById('remove-selected');
 const saveLocalStoreButton = document.getElementById('save-tasks');
 const up = document.getElementById('move-up');
 const down = document.getElementById('move-down');
+const currentDate = document.getElementById('current-date');
 let itensArray;
 let item;
 let taskItem;
@@ -27,10 +28,10 @@ inputButton.addEventListener('click', createItem);
 function itemBgClick(event) {
   for (let index = 0; index < item.length; index += 1) {
     itensArray = item[index];
-    itensArray.style.backgroundColor = 'white';
+    itensArray.style.backgroundColor = 'rgba(0, 150, 136, 0.1)';
     itensArray.classList.remove('selected');
   }
-  event.target.style.backgroundColor = 'rgba(0, 150, 136, 0.1)';
+  event.target.style.backgroundColor = 'rgb(0 150 136 / 23%)';
   event.target.classList.add('selected');
 }
 
@@ -132,3 +133,30 @@ function moveDownTasks() {
 }
 
 down.addEventListener('click', moveDownTasks);
+
+function displayDate() {
+  const today = new Date();
+  const currentMonth = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
+  const weekDays = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
+  const day = today.getDay();
+  const month = currentMonth[(today.getMonth())];
+  const todayDay = weekDays[(today.getDay())];
+  const hour = today.getHours();
+  const minutes = today.getMinutes();
+  const todayDate = `${todayDay}, ${day} de ${month}`;
+  document.getElementById("current-date").innerHTML = todayDate;
+}
+
+function displayHour() {
+  const today = new Date();
+  const hour = today.getHours();
+  let minutes = today.getMinutes();
+  if (today.getMinutes() < 10) {minutes = `0${today.getMinutes()}`;}
+  const currentHour = `${hour}:${minutes}`;
+  document.getElementById("current-hour").innerHTML = currentHour;
+}
+
+displayHour();
+setInterval(displayHour, 60000);
+
+displayDate();
